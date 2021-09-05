@@ -1,0 +1,31 @@
+@startuml diagram practice
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Context.puml
+
+Person(customer,"Cliente","Usuarios que interactúan con la aplicación")
+Person(admin,"Administrador","Personas que administrar la aplicación")
+
+System(web_admin_system,"Web Admin","Administración de parametros, informes, y gestión de configuración")
+System(web_client_system,"Web Client","Aplicación para el usuarios finales")
+
+System(backend_system,"API y Recursos de Computo","Microservicios con funcionalidades de negocio")
+
+System(client_mobile_system,"Aplicación Movil","Aplicación para el usuarios final")
+
+System_Ext(email_systema, "SES", "Sistema de mensajería de correo electrónico")
+System_Ext(pasarela_system, "Pasarela de pago", "Sistema de pasarela de pago")
+System_Ext(sap_system, "SAP", "Sistema contable, facturación electrónica")
+
+
+Rel(customer, web_client_system, "Usa")
+Rel(customer, client_mobile_system, "Usa")
+Rel(admin, web_admin_system, "Usa")
+Rel(backend_system, email_systema, "Usa")
+
+Rel(web_client_system, backend_system, "Consume")
+Rel(web_admin_system, backend_system, "Consume")
+Rel(client_mobile_system, backend_system, "Consume")
+
+Rel(backend_system, pasarela_system, "Usa")
+Rel(backend_system, sap_system, "Usa")
+
+@enduml
