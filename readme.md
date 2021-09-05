@@ -1,4 +1,4 @@
-# Descargar la aplicación planuml.js
+# Descargar la aplicación planuml.jar
 
 https://sourceforge.net/projects/plantuml/files/plantuml.jar/download
 
